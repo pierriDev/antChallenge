@@ -1,0 +1,113 @@
+.body{
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+}
+.welcomeBox{
+    margin: auto;
+    width: 1000px;
+    margin-top: 50px;
+    padding: 30px;
+    border: 1px solid black
+}
+.welcomeText{
+    text-align: center;
+}
+.welcomeInfo{
+    text-align: justify;
+    font-size: 16px;
+    color: black;
+}
+.smallInfo{
+    font-size: 12px;
+    color: gray;
+}
+.leaderboardContent{
+    margin: auto;
+    width: 1000px;
+    margin-top: 50px;
+    background-color: black;
+}
+.leaderboardHeader{
+    background-color: lightgray;
+    padding: 10px 0;
+}
+.subTitle{
+    font-size: 14px;
+    color: black;
+    text-align: center;
+}
+.leaderboardTitle{
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+.antBody{
+    padding: 5px;
+    margin-top: 15px;
+}
+.antName{
+    width: 85%;
+    background-color: gray;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+}
+.antTime{
+    width: 10%;
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    align-items: center;
+}
+.antAction{
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.antLastTitle{
+    padding: 30px;
+    width: 200px;
+    text-align: center;
+}
+.antField{
+    padding: 30px;
+    width: 200px; 
+    text-align: center;
+}
+.antLastField{
+    padding: 30px;
+    width: 200px;
+    text-align: center;
+}
+.antButton{
+    border: 1px solid green;
+    background-color: lightgreen;
+    color: black;
+    width: 500px;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.antButtonDisabled{
+    border: 1px solid black;
+    background-color: gray;
+    width: 500px;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 5px;
+}

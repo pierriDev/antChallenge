@@ -1,0 +1,31 @@
+.antBox{
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.ant{
+    width: 500px;
+    padding: 15px;
+    border: 1px solid black;
+    margin: 10px;
+}
+.antTitle{
+    font-size: 28px;
+
+}
+.antBox{
+
+}
+.antInfo{
+    width: 100%;
+}
+.antInfoSubtitle{
+    font-size: 16px;
+
+}
+.antText{
+    font-size: 20px;
+    margin-left: 10px;
+    font-weight: bold;
+
+}
