@@ -1,0 +1,1 @@
+export const mainEndpoint = "https://sg-ants-test.herokuapp.com";
