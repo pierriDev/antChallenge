@@ -5,7 +5,8 @@ const Ant = () => {
     const {
         ants,
         handleAnts,
-        handleOds
+        handleOds,
+        isRacing
     } = useAntScreen();
 
     return (
@@ -35,8 +36,13 @@ const Ant = () => {
                     </div>
                 </div>
                 <div className='antAction'>
-                    <a className='antButton' onClick={() => handleOds()}>Start Race</a>
+                    {!isRacing? (
+                        <a className='antButton' onClick={() => handleOds()}>Start Race</a>
+                    ): (
+                        <a className='antButtonDisabled'>Calculating Race</a>
+                    )}
                 </div>
+                
             </div>
         </>
     )

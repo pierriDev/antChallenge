@@ -5,7 +5,8 @@ import './Ant.css';
 // import Ants from "../../components/ants/Ants";
 
 export const useAntScreen = () => {
-    const [ants, setAnts] = useState([]);
+    const [ants, setAnts] = useState<any>([]);
+    const [isRacing, setIsRacing] = useState(false);
     const {data: data} = useGetAnts();
 
     useEffect(() => {
@@ -27,7 +28,7 @@ export const useAntScreen = () => {
         const delay = 7000 + Math.random() * 7000;
         const likelihoodOfAntWinning = Math.random();
       
-        return (callback) => {
+        return (callback: any) => {
           setTimeout(() => {
             callback(likelihoodOfAntWinning);
           }, delay);
@@ -35,15 +36,43 @@ export const useAntScreen = () => {
     }
 
 
-    const handleOds =  ()  => {
-        const generateCalculation =  generateAntWinLikelihoodCalculator();
-        console.log(generateCalculation.callback)
+    const handleOds =  async ()  => {
+        setIsRacing(!isRacing)
+    
+
+        const updatedAnts = ants.map((ant: any) => ({ ...ant }));
+        for (let i = 0; i < updatedAnts.length; i++) {
+            console.log("NEW ANT");
+            const calculator = generateAntWinLikelihoodCalculator();
+            const updatedAnt = await new Promise((resolve) => {
+            calculator((result: any) => {
+                const tempAnt = { ...updatedAnts[i], time: result };
+                resolve(tempAnt);
+            });
+            });
+            updatedAnts[i] = updatedAnt;
+            updatedAnts.sort((a: any, b: any) => {
+            if (!a.time) {
+                return 1;
+            } else if (!b.time) {
+                return -1;
+            } else {
+                return b.time - a.time;
+            }
+            });
+            setAnts([...updatedAnts]); // create a new copy of the array before updating it
+        }
+
+        console.log(ants);
+        setIsRacing(false)
+
     }
 
     const handleAnts = () => {
-
+        
+            
         return(
-            ants?.map((ant) => (
+            ants?.map((ant: any) => (
                 
                 <div key={ant.name} className='row'>
                     <div className='antField'>
@@ -58,7 +87,9 @@ export const useAntScreen = () => {
                     <div className='antField'>
                         {ant.weight}
                     </div>
-                    
+                    <div className='antField'>
+                        {ant.time}
+                    </div>
                 </div>
             ))
         )
@@ -68,6 +99,7 @@ export const useAntScreen = () => {
     return {
         ants,
         handleAnts,
-        handleOds
+        handleOds,
+        isRacing
     };
 }
